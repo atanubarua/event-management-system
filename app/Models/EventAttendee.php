@@ -12,7 +12,7 @@ class EventAttendee extends Model
             if (!$this->pdo->inTransaction()) {
                 $this->pdo->beginTransaction();
             }
-            $sql = "SELECT capacity, (SELECT COUNT(*) FROM event_attendees WHERE event_id=:id) AS current_attendees FROM events WHERE id=:id";
+            $sql = "SELECT capacity, (SELECT COUNT(*) FROM event_attendees WHERE event_id=:id) AS current_attendees FROM events WHERE id=:id FOR UPDATE";
             $stmt = $this->pdo->prepare($sql);
             $stmt->execute(['id' => $eventId]);
             $event = $stmt->fetch(PDO::FETCH_ASSOC);
