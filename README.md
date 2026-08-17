@@ -34,7 +34,7 @@ Follow these instructions to get the project up and running on your local machin
 
 1.  **Clone the Repository**
     ```bash
-    git clone https://github.com/your-username/event-management-system.git
+    git clone https://github.com/atanubarua/event-management-system.git
     cd event-management-system
     ```
 
